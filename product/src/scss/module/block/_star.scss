@@ -1,0 +1,158 @@
+@use "../../global" as g;
+
+@mixin adjustStarSize1($star-size) {
+  width: $star-size * 5;
+  height: $star-size;
+  font-size: $star-size;
+}
+@mixin adjustStarSize2($star-size) {
+  height: $star-size;
+  line-height: $star-size;
+}
+
+.star {
+  $block: &;
+
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+
+  &__title {
+    width: 90px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: g.$color-text-normal;
+  }
+
+  &__rate {
+    position: relative;
+    
+    &::before, &::after {
+      position: absolute;
+      display: inline-block;
+      content: "★★★★★";
+      top: 0;
+      left: 0;
+    }
+
+    &::before {
+      color: #edf3fc;
+    }
+    
+    &::after {
+      color: #f5bc55;
+      overflow: hidden;
+      white-space: nowrap;
+      background: -webkit-linear-gradient(0deg, #f5bc55, #ff843b);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  
+  &__point {
+    line-height: 1;
+    color: inherit;
+
+    & > small {
+      font-size: 52%;
+      margin-left: 0.1em;
+    }
+  }
+
+  @for $i from 1 through 50 {
+    &__rate.--rate-w-#{$i}::after { 
+      width: #{$i * 2}#{'%'};
+    }
+  }
+
+  &.--single #{$block}__point {
+    margin-left: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  &.--hero #{$block}__point,
+  &.--post-card #{$block}__point {
+    font-size: 1.25rem;
+    margin-left: 5px;
+  }
+
+  &.--single #{$block}__rate {
+    $star-size: 28px;
+    @include adjustStarSize1($star-size);
+    &::before, &::after {
+      @include adjustStarSize2($star-size);
+    }
+  }
+  &.--hero #{$block}__rate,
+  &.--post-card #{$block}__rate {
+    $star-size: 15px;
+    @include adjustStarSize1($star-size);
+    &::before, &::after {
+      @include adjustStarSize2($star-size);
+    }
+  }
+
+  
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+    
+    &__title {
+      width: 130px;
+      font-size: 1.65rem;
+      font-weight: bold;
+    }
+
+    &.--single #{$block}__rate {
+      $star-size: 32px;
+      @include adjustStarSize1($star-size);
+      &::before, &::after {
+        @include adjustStarSize2($star-size);
+      }
+    }
+
+    &.--single #{$block}__point {
+      font-size: 2.8rem;
+      margin-left: 20px;
+    }
+
+    &.--post-card #{$block}__rate {
+      $star-size: 15px;
+      @include adjustStarSize1($star-size);
+      &::before, &::after {
+        @include adjustStarSize2($star-size);
+      }
+    }
+
+    &.--post-card #{$block}__point {
+      font-size: 1.28rem;
+      margin-left: 0.4em;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+
+    &.--single #{$block}__title {
+      width: 140px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    &.--single #{$block}__rate {
+      $star-size: 35px;
+      @include adjustStarSize1($star-size);
+      &::before, &::after {
+        @include adjustStarSize2($star-size);
+      }
+    }
+
+    &.--single #{$block}__point {
+      font-size: 3.5rem;
+    }
+  }
+}

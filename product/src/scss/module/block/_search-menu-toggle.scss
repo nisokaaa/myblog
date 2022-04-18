@@ -1,0 +1,99 @@
+@use "../../global" as g;
+
+.search-menu-toggle {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  transition: all 0.5s;
+
+  &__checkbox {
+    display: none;
+  }
+  
+  &__btn {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__icon {
+    @extend %icon;
+    font-size: 1.7rem;
+    color: g.$color-gray;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &.--active {
+      color: g.$color-accent-light;
+    }
+  }
+
+  &__text-box {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    height: 1em;
+    width: 48px;
+    color: g.$color-gray;
+  }
+
+  &__text {
+    position: absolute;
+    left: 50%;
+    transition: all .5s;
+    user-select: none;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+
+    &.--active {
+      transform: translate(-50%, 0%);
+      opacity: 1;
+    }
+
+    &.--text-2 {
+      color: g.$color-accent-light;
+    }
+  }
+
+  @keyframes slide-menu-line {
+    100% {
+      height: 0;
+    }
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    &__icon {
+      top: 15px;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+    &__btn {
+      transform: unset;
+      transition: color g.$color-transition-speed;
+    }
+    
+    &__text-box {
+      bottom: 14px;
+    }
+
+    &:hover {
+      background: g.$color-pale-gray;
+    }
+  }
+}
+

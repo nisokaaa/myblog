@@ -1,0 +1,111 @@
+@use "../../global" as g;
+
+@mixin adjustStarSize1($star-size) {
+  width: $star-size * 5;
+  height: $star-size;
+  font-size: $star-size;
+}
+@mixin adjustStarSize2($star-size) {
+  height: $star-size;
+  line-height: $star-size;
+}
+
+.gauge {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 28px 0px 0px 5px;
+
+  &__title {
+    font-size: 1.58rem;
+    font-weight: bold;
+    color: g.$color-text-normal;
+  }
+
+  &__rate {
+    position: relative;
+    
+    &::before, &::after {
+      position: absolute;
+      display: inline-block;
+      content: "★★★★★";
+      top: 0;
+      left: 0;
+    }
+
+    &::before {
+      color: #edf3fc;
+    }
+    
+    &::after {
+      color: #f5bc55;
+      overflow: hidden;
+      white-space: nowrap;
+      background: -webkit-linear-gradient(0deg, #f5bc55, #ff843b);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  
+  &__point {
+    line-height: 1;
+    color: inherit;
+
+    & > small {
+      font-size: 85%;
+      margin-left: 0.1em;
+    }
+  }
+
+  @for $i from 1 through 50 {
+    &__rate.--rate-w-#{$i}::after { 
+      width: #{$i * 2}#{'%'};
+    }
+  }
+
+  &__point {
+    margin-left: 8px;
+    font-size: 1.9rem;
+    font-weight: bold;
+  }
+
+  &__rate {
+    margin-left: 10px;
+    $star-size: 24px;
+    @include adjustStarSize1($star-size);
+    &::before, &::after {
+      @include adjustStarSize2($star-size);
+    }
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    &__title {
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+
+    &__rate {
+      margin-left: 15px;
+      $star-size: 28px;
+      @include adjustStarSize1($star-size);
+      &::before, &::after {
+        @include adjustStarSize2($star-size);
+      }
+    }
+
+    &__point {
+      font-size: 2.2rem;
+      margin-left: 15px;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+  }
+}

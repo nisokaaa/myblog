@@ -1,0 +1,16 @@
+$tablet-min: 481px;
+$big-tablet-min: 960px;
+$pc-min: 1140px;
+$big-pc-min: 1400px;
+
+$space-S: 12px;
+$space-M: 14px;
+$space-L: 17.5px;
+
+:root {
+  --wrap-width-24: 1200px;
+}
+
+$wrap-width-24: var(--wrap-width-24);
+
+$hover-transition-speed: .25s;

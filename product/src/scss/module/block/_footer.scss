@@ -1,0 +1,85 @@
+@use "../../global" as g;
+
+.footer {
+  color: g.$color-text-normal-inverse;
+  //background: linear-gradient(to bottom right, #403f49 0%, #a5a5a5 200%);
+  background: linear-gradient(to bottom right, #35343a, #070708);
+  
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0 30px;
+  }
+
+  &__link {
+    position: relative;
+    font-size: 1.28rem;
+    margin-top: 10px;
+  }
+
+  &__link + &__link {
+    padding-left: 20px;
+  }
+
+  &__link + &__link::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 8px;
+    width: 1px;
+    height: 100%;
+    background-color: currentColor;
+  }
+
+  &__copy {
+    width: 100%;
+    padding: 15px 0 0;
+    font-size: 1.38rem;
+    text-align: center;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    &__wrapper {
+      flex-direction: row;
+      padding: 30px 25px;
+    }
+
+    &__link {
+      margin-top: unset;
+      padding: 15px 25px 15px 0px;
+      font-size: 1.38rem;
+    }
+
+    &__copy {
+      font-size: 1.4rem;
+      text-align: left;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+
+    &__wrapper {
+      max-width: g.$wrap-width-24;
+      margin: 0 auto;
+      padding: 50px 18px;
+    }
+
+    &__link,
+    &__link:hover {
+      transition: all g.$color-transition-speed;
+    }
+
+    &__link:hover {
+      color: g.$color-accent-light-sub;
+    }
+  }
+}

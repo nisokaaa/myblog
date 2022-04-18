@@ -1,0 +1,100 @@
+@use "./config" as conf;
+
+// デバイス名 / 向き / CSSピクセルサイズ
+// ====================================
+// スマホ向け
+// ～ 428px
+// ------------------------------------
+// iPhone SE          (320)
+// Pixel 2            (411)
+// Pixel 2XL          (411)
+// iPhone 678         (375)
+// iPhone 678 Plus    (414)
+// iPhone X           (375)
+// iPhone XS          (375)
+// iPhone XS Max      (414)
+// iPhone XR          (414)
+// iPhone 11          (414)
+// iPhone 11 Pro      (375)
+// iPhone 11 Pro Max  (414)
+// iPhone 12          (390)
+// iPhone 12 Pro      (390)
+// iPhone 12 Pro Max  (428)
+// iPhone 12 mini     (360)
+// ====================================
+@mixin screen-sp-only {
+  @media screen and (max-width: 428px) {
+    @content;
+  }
+}
+
+
+// ====================================
+// スマホ横方向とタブレット向け
+// 429px 〜 959px
+// (415px ～ 767pxは端末が存在しないデッドゾーン)
+// ------------------------------------
+// iPhone SE          (568)
+// Pixel 2            (731)
+// Pixel 2XL          (823)
+// iPhone 678         (667)
+// iPhone 678 Plus    (736)
+// iPhone X           (812)
+// iPhone XS          (812)
+// iPhone XS Max      (896)
+// iPhone XR          (896)
+// iPhone 11          (896)
+// iPhone 11 Pro      (812)
+// iPhone 11 Pro Max  (896)
+// iPhone 12          (844)
+// iPhone 12 Pro      (844)
+// iPhone 12 Pro Max  (926)
+// iPhone 12 mini     (780)
+// ------------------------------------
+// iPad               (768)
+// iPad mini          (768)
+// iPad Air           (834)
+// iPad Pro 10.5      (810)
+// iPad Pro 11        (834)
+// ====================================
+@mixin screen-sp-tab {
+  @media screen and (min-width: 429px) {
+    @content;
+  }
+}
+
+// ====================================
+// タブレット横方向とPC向け 
+// 960px ～
+// ------------------------------------
+// iPad               (1024)
+// iPad mini          (1024)
+// iPad Air           (1112)
+// iPad Pro 10.5      (1080)
+// iPad Pro 11        (1194)
+// ------------------------------------
+// iPad Pro 12.9      (1024)
+// ====================================
+@mixin screen-tab-pc {
+  @media screen and (min-width: 960px) {
+    @content;
+  }
+}
+
+@mixin screen-custom($break-point) {
+  @media screen and (min-width: $break-point) {
+    @content;
+  }
+}
+
+@mixin screen-custom-height($break-point) {
+  @media screen and (min-height: $break-point) {
+    @content;
+  }
+}
+
+@mixin screen-custom-mix($break-point-w, $break-point-h) {
+  @media screen and (min-width: $break-point-w) and (min-height: $break-point-h) {
+    @content;
+  }
+}

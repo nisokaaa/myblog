@@ -1,0 +1,111 @@
+@use "../../global" as g;
+
+.search-menu {
+  padding: 20px 14px 16px;
+
+  &__form {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    padding-bottom: 8px;
+    border: solid 1px g.$color-gray;
+    border-width: 0 0 1px 0;
+  }
+
+  &__input {
+    flex-grow: 1;
+    height: 100%;
+    transform: scale(0.8);
+    transform-origin: center left;
+    margin-right: -14.8%;
+    font-size: 1.65rem;
+    letter-spacing: 0.04em;
+    color: g.$color-text-normal;
+  }
+
+  &__input::placeholder {
+    color: g.$color-gray;
+  }
+
+  &__submit-btn {
+    display: inline-block;
+    position: relative;
+    width: 55px;
+    height: 100%;
+    margin-left: 20px;
+    border-radius: 2px;
+    background: g.$color-dark-gray;
+    border-color: g.$color-dark-gray;
+    text-align: center;
+  }
+
+  &__submit-btn::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: -10px;
+    width: 1px;
+    background-image: linear-gradient(to bottom, lightgray, lightgray 1px, transparent 1px, transparent 3px);
+    background-repeat: repeat-y;
+    background-position: right top;
+    background-size: 1px 4px;
+  }
+
+  &__submit-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.075em;
+    color: g.$color-light;
+  }
+
+  &__symbol-icon {
+    @extend %icon;
+    font-size: 1.4rem;
+    margin: 0 15px;
+    color: g.$color-gray;
+  }
+
+  &__submit-icon {
+    @extend %icon;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    padding: 40px;
+
+    &__form {
+      height: 55px;
+      padding: 8px;
+      border-width: 1px 1px 1px 1px;
+      border-radius: 3px;
+    }
+    
+    &__input {
+      font-size: 1.4rem;
+      transform: scale(1.0);
+      margin: unset;
+    }
+
+    &__submit-btn {
+      width: 70px;
+    }
+
+    &__submit-text {
+      font-size: 1.4rem;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+
+    max-width: g.$wrap-width-24;
+    margin: 0 auto;
+    padding: 65px 180px;
+  }
+}

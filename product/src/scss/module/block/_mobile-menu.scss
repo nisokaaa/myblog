@@ -1,0 +1,50 @@
+@use "../../global" as g;
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--wrap-width-24);
+  margin: 0 auto;
+  color: g.$color-text-normal;
+  background-color: var(--base);
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 18px 22px 18px 20px;
+  }
+
+  &__link + &__link {
+    border-top: solid 1px #edf3fc;
+  }
+
+  &__text {
+    flex-grow: 1;
+    font-size: 1.28rem;
+    font-weight: bold;
+  }
+
+  &__icon {
+    @extend %icon;
+    font-size: 1.2rem;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+  
+    &__link {
+      padding: 25px 42px 25px 40px;
+    }
+
+    &__text {
+      font-size: 1.45rem;
+    }
+  
+    &__icon {
+      font-size: 1.3rem;
+    }
+  
+  }
+}

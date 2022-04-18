@@ -1,0 +1,63 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    env_file: ./db/.env
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    
+  wordpress:
+    build: ./wordpress
+    image: wordpress
+    container_name: wordpress
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8000:80
+    env_file: ./wordpress/.env
+    volumes:
+      - ./product/theme:/var/www/html/wp-content/themes/my_theme
+      - ./wordpress/plugins:/var/www/html/wp-content/plugins
+      - ./wordpress/uploads:/var/www/html/wp-content/uploads
+      - ./wordpress/wp-config.php:/var/www/html/wp-config.php
+      - ./wordpress/.htaccess:/var/www/html/.htaccess
+      - ./wordpress/php.ini:/etc/php.ini
+      - ./wordpress/httpd.conf:/etc/httpd/conf/httpd.conf
+  
+  webpack:
+    build: ./webpack
+    image: webpack
+    container_name: webpack
+    depends_on:
+      - wordpress
+    ports:
+      - 2000:2000
+    volumes:
+      - ./product/src:/my_webpack/src
+      - ./product/theme/public:/my_webpack/dist
+      - ./webpack/package.json:/my_webpack/package.json
+      - ./webpack/webpack.config.js:/my_webpack/webpack.config.js
+      - ./webpack/app.js:/my_webpack/app.js
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8888:80
+    environment:
+      PMA_HOST: db:3306
+      PMA_USER: localhost
+      PMA_PASSWORD: localhost
+
+volumes:
+  db_data:

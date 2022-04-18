@@ -1,0 +1,71 @@
+@use "../../global" as g;
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 24px 0 12px;
+
+	&__pager {
+		display: block;
+		width: 46px;
+    height: 46px;
+    line-height: 46px;
+		margin: 0 5px;
+		padding: 1px 17px 0px;
+		color: g.$color-dark-gray;
+		background-color: g.$color-base;
+		font-size: 1.38rem;
+		font-weight: bold;
+		text-decoration: none;
+		text-align: center;
+		
+
+		&.--first {
+			width: auto;
+			padding: 1px 14px 0px;
+			font-size: 1.25rem;
+		}
+
+		&.--current {
+			color: g.$color-text-normal-inverse;
+			border-color: g.$color-accent-light;
+			background-color: g.$color-accent-light;
+		}
+	}
+
+	// ==========================================================================
+	// for sp-tab
+	// ==========================================================================
+	@include g.screen-sp-tab {
+		
+		&__pager {
+			width: 55px;
+			height: 55px;
+			line-height: 55px;
+			margin: 0 7px;
+			font-size: 1.65rem;
+			
+			&.--first {
+				width: auto;
+				font-size: 1.4rem;
+			}
+		}
+	}
+
+	// ==========================================================================
+	// for tab-pc
+	// ==========================================================================
+	@include g.screen-tab-pc {
+
+		&__pager {
+			transition: all 0.25s;
+		}
+		
+		&__pager:hover {
+			color: #fff;
+			border-color: g.$color-accent-light;
+			background-color: g.$color-accent-light;
+		}
+	}
+}

@@ -1,0 +1,397 @@
+@use "../../global" as g;
+
+.post-card {
+
+  $block: &;
+
+  &__media-unit {
+    display: flex;
+    flex-wrap: wrap; 
+  }
+
+  &__media {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: g.$color-base;
+    box-shadow: 1px 1px 15px 0px rgb(0 0 0 /8%);
+    width: 100%;
+  }
+  
+  &__eyecatch {
+    display: block;
+    overflow: hidden;
+  }
+  
+  &__eyecatch-inner {
+    position: relative;
+    padding-top: 56.25%; /* アス比 */
+  }
+
+  &__eyecatch-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+
+  &__body {
+    position: relative;
+    pointer-events: none;
+    padding: 17px;
+  }
+  
+  &__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    
+    margin-bottom: 7.5px;
+    font-size: 1.425rem;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    word-break: break-all;
+    color: g.$color-text-bold;
+  }
+
+  &__tag {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: translateY(-100%);
+    padding: 0 0.65em;
+    border-radius: 1px;
+    line-height: 2.45;
+    font-size: 1.15rem;
+    font-weight: bold;
+    letter-spacing: 0.075em;
+    text-align: center;
+    vertical-align: middle;
+    color: g.$color-light;
+    pointer-events: auto;
+    background: g.$color-accent-light;
+  }
+
+  &__excerpt {
+    margin-top: 10px;
+    font-size: 1.25rem;
+    line-height: 1.85;
+    letter-spacing: 0.02em;
+    opacity: 0.65;
+    color:g.$color-text-normal;
+  }
+
+  &__star {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 1px;
+    color: g.$color-dark-gray;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+  }
+
+  &__category {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    color: g.$color-dark-gray;
+    pointer-events: auto;
+  }
+
+  &__category-icon {
+    @extend %icon;
+    width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 50%;
+    color: g.$color-text-normal-inverse;
+    background: g.$color-accent-light;
+  }
+  
+  &__category-text {
+    display: inline-block;
+    margin: 1.5px 0 0 0.2em;
+    vertical-align: middle;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  &__date {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    margin-left: 0.8em;
+    color: g.$color-dark-gray;
+  }
+
+  &__date-inner {
+    display: flex;
+    align-items: center;
+    padding-top: 2px;
+  }
+
+  &__date-icon {
+    @extend %icon;
+    font-size: 1.14rem;
+  }
+
+  &__date-text {
+    font-size: 1.28rem;
+    margin: 1px 0 0 0.3em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  // クリックエリアを拡張
+  &__media {
+    position: relative;
+  }
+  &__eyecatch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &.--side #{$block}__media:nth-of-type(n+7) {
+    display: none;
+  }
+
+  &.--hero #{$block}__excerpt {
+    display: none;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    &__body {
+      position: unset;
+    }
+
+    &__tag {
+      top: g.$space-M;
+      left: g.$space-M;
+      transform: unset;
+      border-radius: 3px;
+    }
+  
+    &__category-icon {
+      width: 21px;
+      height: 21px;
+    }
+
+    &__category-text {
+      font-size: 1.24rem;
+    }
+
+    &__date-icon {
+      font-size: 1.3rem;
+    }
+  
+    &__date-text {
+      font-size: 1.3rem;
+    }
+
+    &.--main #{$block}__media,
+    &.--side #{$block}__media {
+      width: calc(50% - (g.$space-M * 0.5));
+    }
+
+    &.--main #{$block}__media + #{$block}__media,
+    &.--side #{$block}__media + #{$block}__media {
+      margin-top: unset;
+    }
+
+    &.--main #{$block}__media:nth-of-type(n+3),
+    &.--side #{$block}__media:nth-of-type(n+3) {
+      margin-top: g.$space-M; /* 3番目以降から最後までに対して(先頭2要素は無視) */
+    }
+
+    &.--main #{$block}__media:nth-child(2n),
+    &.--side #{$block}__media:nth-child(2n) {
+      margin-left: g.$space-M; /* 2列目の要素すべてに対して */
+    }
+
+    &.--main #{$block}__title,
+    &.--side #{$block}__title {
+      letter-spacing: 0.04em;
+      font-size: 1.5rem;
+    }
+
+    &.--hero #{$block}__body {
+      padding: 28px;
+    }
+    &.--hero #{$block}__title {
+      margin-bottom: 12.5px;
+      font-size: 1.625rem;
+      line-height: 1.6;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+
+    /* hover関連の設定 */
+    &__eyecatch,
+    &__title,
+    &__media:hover &__title {
+      transition: all g.$color-transition-speed;
+    }
+    &__media:hover &__eyecatch {
+      opacity: 0.7;
+    }
+    &__media:hover &__title {
+      color: g.$color-accent-light-sub;
+    }
+    &.--main #{$block}__title {
+      font-size: 1.5rem;
+    }
+    &.--main #{$block}__category-icon {
+      width: 21px;
+      height: 21px;
+    }
+    &.--main #{$block}__category-text {
+      font-size: 1.24rem;
+    }
+
+    /* スクロール化 */
+    &.--side {
+      overflow: auto;
+      /* IE, Edge 対応 */
+      -ms-overflow-style: none;
+      /* Firefox 対応 */
+      scrollbar-width: none;
+    }
+    &.--side::-webkit-scrollbar {
+      display: none;
+    }
+    &.--side #{$block}__media:nth-of-type(n+7) {
+      display: flex;
+    }
+    &.--side #{$block}__media:nth-child(2n) {
+      margin-left: unset;
+    }
+    &.--side #{$block}__media + #{$block}__media {
+      margin-top: g.$space-M;
+    }
+    &.--side #{$block}__media {
+      flex-direction: column;
+      width: 100%;
+    }
+    &.--side #{$block}__body {
+      padding: g.$space-M;
+      line-height: 1.7;
+    }
+    &.--side #{$block}__title {
+      font-size: 1.36rem;
+      -webkit-line-clamp: 3;
+    }
+    &.--side #{$block}__category-icon {
+      width: 20px;
+      height: 20px;
+    }
+    &.--side #{$block}__category-text {
+      font-size: 1.2rem;
+    }
+    &.--side #{$block}__date-icon {
+      font-size: 1.14rem;
+    }
+    &.--side #{$block}__date-text {
+      margin: 1.5px 0 0 0.2em;
+      font-size: 1.15rem;
+    }
+
+    &.--hero #{$block}__media {
+      flex-direction: row;
+    }
+    &.--hero #{$block}__eyecatch {
+      min-width: 64.5%;
+      cursor: pointer;
+    }
+    &.--hero #{$block}__body {
+      padding: 3% 3% 1%;
+    }
+    &.--hero #{$block}__tag {
+      position: relative;
+      top: unset;
+      left: unset;
+    }
+    &.--hero #{$block}__title {
+      margin: 15px 0 15px;
+      font-size: 1.7rem;
+      line-height: 1.5;
+    }
+    &.--hero #{$block}__category-icon {
+      width: 21px;
+      height: 21px;
+    }
+    &.--hero #{$block}__category-text {
+      font-size: 1.24rem;
+    }
+    &.--hero #{$block}__excerpt {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+      margin-top: 10px;
+      line-height: 1.8;
+      font-size: 1.35rem;
+      color: g.$color-dark-gray;
+    }
+  }
+
+  // ==========================================================================
+  // for FHD
+  // ==========================================================================
+  @include g.screen-custom(1366px) {
+
+    &__tag {
+      font-size: 1.2rem;
+    }
+
+    &.--main #{$block}__media {
+      width: calc(50% - (g.$space-L * 0.5));
+    }
+    &.--main #{$block}__media:nth-of-type(n+3) {
+      margin-top: g.$space-L; /* 3番目以降から最後までに対して(先頭2要素は無視) */
+    }
+    &.--main #{$block}__media:nth-child(2n) {
+      margin-left: g.$space-L; /* 2列目の要素すべてに対して */
+    }
+    &.--main #{$block}__title {
+      font-size: 1.6rem;
+    }
+
+    &.--side #{$block}__title {
+      font-size: 1.46rem;
+    }
+
+    &.--hero #{$block}__title {
+      margin: 20px 0 15px;
+      font-size: 1.825rem;
+      line-height: 1.55;
+    }
+    &.--hero #{$block}__excerpt {
+      margin-top: 15px;
+      -webkit-line-clamp: 5;
+      font-size: 1.425rem;
+      line-height: 1.85;
+    }
+  }
+}

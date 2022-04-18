@@ -1,0 +1,100 @@
+@use "../../global" as g;
+
+.adsense {
+  $block: &;
+  height: inherit;
+  width: 100%;
+
+  &__box {
+    height: inherit;
+    width: 100%;
+  }
+
+  &__box + &__box {
+    padding-top: g.$space-S;
+  }
+
+  &.--sp-content-bottom #{$block}__box,
+  &.--sp-footer #{$block}__box {
+    padding-top: g.$space-S;
+  }
+
+  &__box img {
+    width: 100%;
+    height: auto;
+  }
+  
+  &.--pc-tab-side-top { display: none; }
+  &.--pc-tab-side-bottom { display: none; }
+  &.--pc-footer { display: none; }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    &__box + &__box {
+      padding-top: g.$space-M;
+    }
+
+    &.--pc-tab-side-bottom #{$block}__box,
+    &.--pc-tab-side-top #{$block}__box {
+      padding-top: g.$space-M;
+    }
+
+    &.--sp-content-bottom { display: none; }
+    &.--sp-footer { display: none; }
+    &.--pc-tab-side-top { display: block; }
+
+    /* tab版の場合は幅50%ずつタイル状に */
+    &.--pc-tab-side-bottom {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &.--pc-tab-side-bottom #{$block}__box {
+      width: calc(50% - (g.$space-M * 0.5));
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+
+    &.--pc-footer {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: unset;
+    }
+
+    &.--pc-footer #{$block}__box {
+      padding: 0 0 24px;
+      margin: 0 20px 0 0 !important;
+    }
+
+    &.--pc-footer #{$block}__box:last-of-type {
+      margin: unset !important;
+    }
+    
+    /* 幅めいっぱい */
+    &.--pc-tab-side-bottom #{$block}__box {
+      width: 100%;
+    }
+  }
+
+  // ==========================================================================
+  // for FHD
+  // ==========================================================================
+  @include g.screen-custom(1366px) {
+    
+    &__box + &__box {
+      padding-top: g.$space-L;
+    }
+
+    &.--pc-tab-side-bottom #{$block}__box,
+    &.--pc-tab-side-top #{$block}__box {
+      padding-top: g.$space-L;
+    }
+  }
+}

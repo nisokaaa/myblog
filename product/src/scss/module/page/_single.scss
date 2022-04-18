@@ -1,0 +1,226 @@
+@use "../../global" as g;
+
+.single {
+  &__header {
+    width: 100%;
+    padding: 7% 5.5% 0px;
+    line-height: 1.4;
+    text-align: center;
+    background: g.$color-base;
+  }
+
+  &__content {
+    padding: 1px 14px 1px;
+  }
+
+  &__footer {
+    width: 100%;
+    padding: 14px 14px 24px;
+    background: g.$color-base;
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: 2.1rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    color: g.$color-text-normal;
+  }
+
+  &__meta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 0;
+  }
+
+  &__date {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    color: g.$color-dark-gray;
+  }
+
+  &__date-icon {
+    @extend %icon;
+    font-size: 1.2rem;
+  }
+
+  &__date-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    font-size: 1.28rem;
+  }
+
+  &__eyecatch {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__content {
+    line-height: 2.25;
+    color: g.$color-text-normal;
+    line-height: 2;
+    background: g.$color-base;
+
+    & > p {
+      color: #333;
+      font-size: 1.48rem;
+      letter-spacing: 0.04em;
+  
+      &.noline em {
+        background: none;
+      }
+    }
+
+    & > p + p {
+      margin-top: 30px;
+    }
+
+    & em {
+      color: inherit;
+      font-style: normal !important;
+      font-family: inherit;
+      font-weight: bold;
+      background: linear-gradient(transparent 65%,rgb(252 118 120 / 35%) 35%);
+    }
+
+    & strong {
+      color: black;
+    }
+
+    & > h2 {
+      margin: 30px 0px 15px;
+      padding: 16px 18px;
+      font-size: 1.75rem;
+      font-weight: bold;
+      word-break: break-all;
+      letter-spacing: 0.04em;      
+      border-left: solid 5px g.$color-dark;
+      background: g.$color-pale-gray;
+      color: g.$color-text-normal;
+    }
+
+    & > h2:not(:first-of-type) {
+      margin-top: 30px;
+    }
+
+    & > h3 {
+      margin: 26px 0 18px;
+      padding: 5px 14px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      word-break: break-all;
+      letter-spacing: 0.025em;
+      border-radius: 1px;
+      background: #67738a;
+      color: g.$color-text-normal-inverse;
+    }
+
+    & > h4 {
+      margin: 20px 0 15px;
+      padding: 2px 10px;
+      font-size: 1.55rem;
+      font-weight: bold;
+      word-break: break-all;
+      letter-spacing: 0.04em;
+      border-left: solid 5px g.$color-dark;
+      color: g.$color-text-normal;
+    }
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    &__header {
+      margin: g.$space-M 0px 0px;
+    }
+
+    &__content {
+      padding: 1px 30px 1px;
+    }
+
+    &__footer {
+      padding: 20px 30px 30px;
+    }
+
+    &__title {
+      font-size: 2.8rem;
+    }
+
+    &__meta {
+      margin-top: 24px;
+    }
+
+    &__date {
+      margin-left: 15px;
+    }
+
+    &__date-icon {
+      font-size: 1.52rem;
+    }
+  
+    &__date-text {
+      font-size: 1.5rem;
+    }
+
+    &__content {
+  
+      & > p {
+        font-size: 1.58rem;
+        letter-spacing: 0.06em;
+      }
+
+      & > p + p {
+        margin-top: 28px;
+      }
+  
+      & > h2 {
+        font-size: 2.1rem;
+        padding: 14px 22px;
+        margin: 28px 0 25px;
+      }
+  
+      & > h3 {
+        font-size: 1.9rem;
+        padding: 7.5px 18px;
+        margin: 28px 0 18px;
+      }
+
+      & > h4 {
+        padding: 6px 15px;
+        font-size: 1.65rem;
+        margin: 25px 0;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+
+    &__title {
+      text-align: left;
+    }
+
+    &__meta {
+      margin-top: 30px;
+    }
+  }
+
+  // ==========================================================================
+  // for FHD
+  // ==========================================================================
+  @include g.screen-custom(1366px) {
+    &__header {
+      margin: g.$space-L 0px 0px;
+    }
+  }
+}

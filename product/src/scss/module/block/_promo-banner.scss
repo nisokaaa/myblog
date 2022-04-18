@@ -1,0 +1,40 @@
+@use "../../global" as g;
+
+.promo-banner {
+  position: relative;
+  display: block;
+  margin-bottom: 14px;
+  padding: 12px 0;
+
+  &__title {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.28rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+    line-height: 1;
+    font-weight: bold;
+    color: g.$color-text-normal-inverse;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    margin-bottom: unset;
+    padding: 15px 0;
+
+    &__title {
+      font-size: 1.48rem;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+
+  }
+}
+

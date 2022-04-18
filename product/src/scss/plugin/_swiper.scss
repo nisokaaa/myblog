@@ -1,0 +1,126 @@
+@use "../global" as g;
+
+/* slide */
+.swiper-slide {
+  height: auto !important;
+}
+
+/* button-prev/next */
+.swiper-button-prev,
+.swiper-button-next {
+  top: 42% !important;
+  width: 50px !important;
+  height: 20% !important;
+  transform: translateY(-50%);
+  transition: all g.$hover-transition-speed;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 1;
+}
+
+.swiper-button-prev {
+  left: 0px !important;
+}
+
+.swiper-button-next {
+  right: 0px !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: g.$color-text-normal;
+  font-size: 2rem !important;
+  font-weight: bold;
+}
+
+.swiper-button-disabled {
+  opacity: 0 !important;
+}
+
+/* pagination */
+.swiper-pagination {
+  position: relative !important;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+}
+
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50%!important;
+}
+
+.swiper-pagination-bullet + .swiper-pagination-bullet {
+  margin-left: 15px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: g.$color-charm-light !important;
+}
+
+// ==========================================================================
+// for sp-tab
+// ==========================================================================
+@include g.screen-sp-tab {
+  
+  /* container */
+  .swiper-container {
+    border-radius: 4px;
+  }
+
+  /* pagination */
+  .swiper-pagination {
+    height: 80px;
+    line-height: 80px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .swiper-pagination-bullet + .swiper-pagination-bullet {
+    margin-left: 20px;
+  }
+}
+
+// ==========================================================================
+// for tab-pc
+// ==========================================================================
+@include g.screen-tab-pc {
+
+  /* button-prev/next */
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    transition: all g.$hover-transition-speed;
+    transform: translateY(-50%) scale(1.5);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 55% !important;
+    height: 100% !important;
+  }
+
+  .swiper-button-disabled {
+    opacity: inherit !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+  }
+
+  /* pagination */
+  .swiper-pagination {
+    height: 70px;
+    line-height: 75px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}

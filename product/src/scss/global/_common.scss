@@ -1,0 +1,18 @@
+%icon {
+  /* 描画領域を確保する */
+  width: 1em;
+  height: 1em;
+  
+  /* 文字列と高さをあわせる */
+  display: inline-block;
+  vertical-align: middle;
+
+  /* 文字色をあわせる */
+  color: inherit;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0;
+
+  /* サイズ初期値 */
+  font-size: 1rem;
+}

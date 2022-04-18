@@ -1,0 +1,170 @@
+@use "../../global" as g;
+
+.product {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+  &__graph {
+    margin: 15px 0px 0px 5px;
+  }
+
+  &__detail-data {
+    flex-grow: 1;
+    margin-top: 15px;
+  }
+
+  &__basic-data {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 100px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.9) 100%);
+      transition: opacity .5s;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    &.--show::before {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    padding: 10px 4px 4px;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #eee;
+
+    &.--no-link {
+      align-items: center;
+    }
+  }
+
+  &__item-title {
+    flex-basis: 6.5em;
+    padding-right: 10px;
+  }
+
+  &__item-tags {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  &__label {
+    display: inline-block;
+    padding: 0 0.65em;
+    margin: 0 4px 7px 0;
+    line-height: 2.45;
+    border-radius: 0.3rem;
+    font-size: 1.28rem;
+    letter-spacing: 0.075em;
+    text-align: center;
+    vertical-align: middle;
+    color: g.$color-text-normal;
+    background: g.$color-pale-gray;
+  }
+
+  &__tags-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    padding: 0.75em;
+    background: white;
+    border-radius: 1px;
+    border: solid 1px g.$color-dark-gray;
+    color: g.$color-dark-gray;
+    z-index: 1;
+    transition: opacity .5s;
+    opacity: 1;
+    pointer-events: auto;
+
+    &.--hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__tags-btn-text {
+    font-size: 1.4rem;
+    display: inline-block;
+    vertical-align: middle;
+    color: inherit;
+  }
+
+  &__tags-btn-icon {
+    @extend %icon;
+    font-size: 1.4rem;
+    transform: translateY(1px) rotateZ(90deg);
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+    
+    &__graph {
+      margin: 5px 0px 0px 5px;
+    }
+
+    &__item {
+      font-size: 1.44rem;
+    }
+
+    &__item-title {
+      flex-basis: 9em;
+    }
+
+    &__detail-data {
+      margin-top: 20px;
+    }
+
+    &__tags-btn {
+      padding: 1em;
+      width: 90%;
+      max-width: 570px;
+    }
+
+    &__tags-btn-text {
+      font-size: 1.5rem;
+    }
+
+    &__label {
+      font-size: 1.375rem;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+    
+    &__item-title {
+      flex-basis: 10em;
+    }
+
+    &__label {
+      font-size: 1.4rem;
+    }
+
+    &__tags-btn {
+      transition: g.$color-transition-speed;
+    }
+    &__tags-btn:hover {
+      transition: g.$color-transition-speed;
+      transform: translate(-50%, 5px);
+      box-shadow: 0px 7px 10px rgb(0 0 0 / 10%);
+    }
+  }
+}

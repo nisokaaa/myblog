@@ -1,0 +1,69 @@
+:root {
+  --color-light: #ffffff;
+  --color-dark: #252f3d;
+  --color-dark-gray: #535e6d;
+  --color-gray: #8a939f;
+  --color-light-gray: #afb8c4;
+  --color-pale-gray: #f7f8fa;
+
+  --color-border: #e6e8eb;
+  
+  --color-accent-light: #fc4d50;
+  --color-accent-dark: #c7227a;
+  --color-accent-pale:#fdf2f2;
+  --color-charm-light: #e696a9;
+
+  --color-accent-light-sub: #36b0c0;
+  --color-accent-dark-sub: #35b2ff;
+  --color-accent-pale-sub:#f5fbff;
+  --color-charm-light-sub: #f5b88a;
+
+  --color-anime-light:#01a3d5;
+  --color-anime-pale:#f2fbfd;
+  --color-doujin-light: #8dd501;
+  --color-doujin-pale: #f4fdf2;
+
+  //--color-base:               #ffffff;  // 大きな面積を占める色
+  //--color-main:               #473841;  // ブランドのメインイメージ色
+
+  --color-base:               #ffffff;  // 大きな面積を占める色
+  --color-sub:                #f3f4f6;
+  --color-main:               #e07aa3;  // ブランドのメインイメージ色  
+  
+  --color-text-normal:        #252f3d;  // 基本テキスト色
+  --color-text-normal-inverse:#ffffff;  // 基本テキスト色(逆)
+  --color-text-bold:          #3e4e62;  // 強調テキスト色
+}
+
+$color-base:                var(--color-base);
+$color-sub:                 var(--color-sub);
+$color-main:                var(--color-main);
+$color-text-normal:         var(--color-text-normal);
+$color-text-normal-inverse: var(--color-text-normal-inverse);
+$color-text-bold:           var(--color-text-bold);
+
+$color-light:               var(--color-light);
+$color-dark:                var(--color-dark);
+$color-gray:                var(--color-gray);
+$color-light-gray:          var(--color-light-gray);
+$color-dark-gray:           var(--color-dark-gray);
+$color-pale-gray:           var(--color-pale-gray);
+$color-border:              var(--color-border);
+
+$color-accent-light:        var(--color-accent-light);
+$color-accent-dark:         var(--color-accent-dark);
+$color-accent-pale:         var(--color-accent-pale);
+$color-charm-light:         var(--color-charm-light);
+$color-accent-light-sub:    var(--color-accent-light-sub);
+$color-accent-dark-sub:     var(--color-accent-dark-sub);
+$color-accent-pale-sub:     var(--color-accent-pale-sub);
+$color-charm-light-sub:     var(--color-charm-light-sub);
+
+$color-anime-light:         var(--color-anime-light);
+$color-anime-pale:          var(--color-anime-pale);
+$color-doujin-light:        var(--color-doujin-light);
+$color-doujin-pale:         var(--color-doujin-pale);
+
+$color-transition-speed: .25s;
+
+$color-url-default: #0066cb;

@@ -1,0 +1,62 @@
+@use "../../global" as g;
+
+.search {
+  
+  &__search-box {
+    max-width: 100%;
+  }
+
+  &__result {
+    padding: 20px;
+    background-color: g.$color-base;
+    line-height: 1.9;
+    color: g.$color-text-normal;
+  }
+
+  &__result-message {
+    font-size: 1.475rem;
+  }
+
+  &__result-message + &__result-message {
+    margin-top: 7.5px;
+  }
+
+  &__result-message:last-of-type {
+    margin-bottom: 20px;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    &__result {
+      margin-bottom: g.$space-M;
+      padding: calc(g.$space-M * 2);
+    }
+
+    &__result-message {
+      font-size: 1.525rem;
+    }
+
+    &__result-message:last-of-type {
+      margin-bottom: 28px;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+  }
+
+  // ==========================================================================
+  // for FHD
+  // ==========================================================================
+  @include g.screen-custom(1366px) {
+    &__result {
+      margin-bottom: g.$space-L;
+      padding: calc(g.$space-L * 2);
+    }
+  }
+}

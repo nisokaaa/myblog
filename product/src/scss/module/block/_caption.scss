@@ -1,0 +1,74 @@
+@use "../../global" as g;
+
+.caption {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: g.$space-S 0px 0px;
+  padding: 10px 0 10px 15px;
+
+  color: g.$color-text-bold;
+  font-weight: bold;
+  word-break: break-all;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+  background: g.$color-base;
+  border-bottom: solid 1px g.$color-border;
+
+  &__text {
+    font-size: 1.48rem;
+    padding: 7px 8px 5px;
+  }
+
+  &__icon {
+    @extend %icon;
+    font-size: 1.7rem;
+    color: g.$color-dark;
+  }
+
+  &.--mt-unset {
+    margin-top: unset;
+  }
+  
+  &.--mb-unset {
+    margin-bottom: unset;
+  }
+
+  &.--mt-unset-sp {
+    margin-top: unset;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+    margin: g.$space-M 0px;
+    padding: 10px 0px 10px 18px;
+
+    &__text {
+      font-size: 1.58rem;
+    }
+
+    &.--mt-unset-sp {
+      margin: g.$space-M 0px;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+    width: 100%;
+  }
+
+  // ==========================================================================
+  // for FHD
+  // ==========================================================================
+  @include g.screen-custom(1366px) {
+    margin: g.$space-L 0px;
+
+    &.--mt-unset-sp {
+      margin: g.$space-L 0px;
+    }
+  }
+}

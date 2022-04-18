@@ -1,0 +1,20 @@
+// ==========================================================================
+// Module
+// ==========================================================================
+// -----------------------------------------------------------------
+// Block
+// -----------------------------------------------------------------
+@use "module/block/product";
+@use "module/block/picture";
+@use "module/block/internal-link";
+@use "module/block/external-link";
+@use "module/block/term-list";
+@use "module/block/comment-box";
+@use "module/block/gauge";
+@use "module/block/quote";
+@use "module/block/embed";
+
+// -----------------------------------------------------------------
+// Page
+// -----------------------------------------------------------------
+@use "module/page/single";

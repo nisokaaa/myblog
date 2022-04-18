@@ -1,0 +1,51 @@
+@use "../../global" as g;
+
+.profile {
+  padding: 20px;
+  line-height: 1.75;
+  background-color: g.$color-base;
+
+  &__description {
+    font-size: 1.4rem;
+    padding: 0 5px;
+    word-break: break-all;
+  }
+
+  &__sns {
+    padding: 16px 0; 
+    color: g.$color-light;
+    background: g.$color-accent-light;
+    margin-top: 20px;
+    border-radius: 3px;
+  }
+
+  &__sns-title {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  
+  &__sns-btn {
+    display: block;
+    width: 165px;
+    margin: 10px auto 0 auto;
+    padding: 7.5px 0;
+    border-radius: 0.5em;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.18);
+  }
+
+  &__sns-icon {
+    @extend %icon;
+    font-size: 1.8rem;
+  }
+
+  &__sns-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 7.5px;
+    font-size: 1.3rem;
+    letter-spacing: 0.02em;
+  }
+}

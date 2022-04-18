@@ -1,0 +1,140 @@
+@use "../../global" as g;
+
+.about {
+  &__eyecatch {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  &__content {
+    padding: 14px;
+  }
+
+  &__content {
+    line-height: 2.25;
+    color: g.$color-text-normal;
+    line-height: 1.8;
+    background: g.$color-base;
+
+    & > p {
+      color: #333;
+      font-size: 1.475rem;
+      letter-spacing: 0.04em;
+  
+      &.noline em {
+        background: none;
+      }
+    }
+
+    & > p + p {
+      margin-top: 13px;
+    }
+
+    & em {
+      color: inherit;
+      font-style: normal !important;
+      font-family: inherit;
+      font-weight: bold;
+      background: linear-gradient(transparent 65%,rgb(252 118 120 / 35%) 35%);
+    }
+
+    & strong {
+      color: black;
+    }
+
+    & > h2 {
+      margin-bottom: 20px;
+      padding: 16px 18px;
+      font-size: 1.75rem;
+      font-weight: bold;
+      word-break: break-all;
+      letter-spacing: 0.04em;      
+      border-left: solid 5px g.$color-dark;
+      background: g.$color-pale-gray;
+      color: g.$color-text-normal;
+    }
+
+    & > h2:first-of-type {
+      margin-top: 30px;
+    }
+    
+    & > h2:not(:first-of-type) {
+      margin-top: 40px;
+    }
+
+    & > h3 {
+      margin: 20px 0 15px;
+      padding: 5px 14px;
+      font-size: 1.7rem;
+      font-weight: bold;
+      word-break: break-all;
+      letter-spacing: 0.025em;
+      border-radius: 1px;
+      background: #67738a;
+      color: g.$color-text-normal-inverse;
+    }
+
+    & > h4 {
+      margin: 20px 0 15px;
+      padding: 2px 10px;
+      font-size: 1.55rem;
+      font-weight: bold;
+      word-break: break-all;
+      letter-spacing: 0.04em;
+      border-left: solid 5px g.$color-dark;
+      color: g.$color-text-normal;
+    }
+  }
+
+  &__contact-info > a {
+    color: g.$color-url-default;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    &__content {
+      padding: 30px;
+    }
+
+    &__content {
+  
+      & > p {
+        font-size: 1.525rem;
+        letter-spacing: 0.06em;
+      }
+
+      & > p + p {
+        margin-top: 14px;
+      }
+  
+      & > h2 {
+        font-size: 2.1rem;
+        padding: 14px 22px;
+      }
+
+      & > h2:first-of-type {
+        margin-top: 25px;
+      }
+      
+      & > h2:not(:first-of-type) {
+        margin-top: 40px;
+      }
+
+      & > h3 {
+        font-size: 1.9rem;
+        padding: 7.5px 18px;
+        margin: 25px 0;
+      }
+
+      & > h4 {
+        padding: 6px 15px;
+        font-size: 1.65rem;
+        margin: 25px 0;
+      }
+    }
+  }
+}

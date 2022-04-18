@@ -1,0 +1,47 @@
+@use "../../global" as g;
+
+.comment-box {
+  position: relative;
+  margin-top: 26px;
+  padding: 13px;
+  border: 2px solid #cfe6b8;
+  border-radius: 6px;
+  background: #f7ffe6;
+  line-height: 1.7;
+
+  &::before {
+    top: -11px;
+    border-width: 0 10px 10px;
+    border-color: transparent transparent #cfe6b8;
+  }
+
+  &::after {
+    top: -8px;
+    border-width: 0 8px 8px;
+    border-color: transparent transparent #f7ffe6;
+  }
+
+  &::after, &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 50px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+    padding: 16px;
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+  }
+}

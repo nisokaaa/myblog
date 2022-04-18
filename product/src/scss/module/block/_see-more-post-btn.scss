@@ -1,0 +1,67 @@
+@use "../../global" as g;
+
+.see-more-post-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  margin: 20px auto calc(20px - g.$space-S);
+  padding: 8px 0 8px 15px;
+  background: g.$color-accent-light;
+  border-top: solid 1px g.$color-border;
+  color: g.$color-text-normal-inverse;
+  font-weight: bold;
+  word-break: break-all;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+
+  &__text {
+    font-size: 1.4rem;
+    padding: 7px 8px 5px;
+  }
+
+  &__icon {
+    @extend %icon;
+    font-size: 1.5rem;
+    color: currentColor;
+    margin-right: 1.5rem;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+    width: 65%;
+    margin: 32px auto calc(32px - g.$space-M);
+    padding: 14px 0px 14px 18px;
+    border-top: unset;
+    &__text {
+      font-size: 1.55rem;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+    width: 100%;
+    margin-top: g.$space-M;
+    transition: all g.$hover-transition-speed;
+    color: g.$color-text-bold;
+    background: g.$color-base;
+
+    &:hover {
+      transition: all g.$hover-transition-speed;
+      padding-left: 30px;
+      background: g.$color-accent-light;
+      color: g.$color-text-normal-inverse;
+    }
+  }
+
+  // ==========================================================================
+  // for FHD
+  // ==========================================================================
+  @include g.screen-custom(1366px) {
+    margin-top: g.$space-L;
+  }
+}

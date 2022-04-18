@@ -1,0 +1,43 @@
+# 下記は除く
+# plugins wpプラグイン
+# uploads アップロード済み画像
+# webp-express アップロード済みwebp画像
+/wordpress/*
+!/wordpress/plugins
+!/wordpress/uploads
+!/wordpress/webp-express
+!/wordpress/.env
+!/wordpress/.htaccess
+!/wordpress/Dockerfile
+!/wordpress/httpd.conf
+!/wordpress/php.ini
+!/wordpress/wp-config.php
+/wordpress/plugins/*
+/wordpress/uploads/*
+/wordpress/webp-express/*
+
+# 初期DBデータは除く
+/db/*
+!/db/initdb.d/
+!/db/.env
+/db/initdb.d/*
+
+# ビルド結果は除く
+/product/*
+!/product/src/
+!/product/theme/
+/product/theme/public/
+!/product/theme/public/
+/product/theme/public/*
+!/product/theme/public/js/
+!/product/theme/public/css/
+/product/theme/public/js/*
+/product/theme/public/css/*
+
+/srdb
+
+# ssh
+/ssh-key.txt
+
+!.gitkeep
+

@@ -1,0 +1,62 @@
+@use "../../global" as g;
+
+.scroll-btn {
+
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  transform: translate(-50%, -100%);
+  width: 47px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: g.$color-dark;
+  color: g.$color-text-normal-inverse;
+  opacity: 0;
+  z-index: 1000;
+  transition: opacity .25s;
+
+  &__icon {
+    @extend %icon;
+    font-size: 1.85rem;
+    transform: rotateZ(-90deg);
+  }
+
+  &.--show {
+    opacity: 0.8;
+    transition: opacity .25s;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+
+    width: 60px;
+    height: 60px;
+
+    &__icon {
+      font-size: 2.55rem;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+
+    width: 52px;
+    height: 52px;
+
+    &__icon {
+      font-size: 2.15rem;
+    }
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+}

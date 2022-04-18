@@ -1,0 +1,65 @@
+@use "../../global" as g;
+
+.category-menu {
+  width: 100%;
+  letter-spacing: 0.02em;
+  color: g.$color-text-normal;
+  background: g.$color-base;
+
+  &__item {
+    margin-left: unset;
+    border-bottom: none;
+    padding: 15px;
+  }
+
+  &__item + &__item {
+    border-top: solid 1px g.$color-border;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    flex-grow: 1;
+    margin-left: 0.4em;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  &__count {
+    font-size: 1.28rem;
+    background-color: g.$color-pale-gray;
+    color: g.$color-dark-gray;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 27px;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {  
+    &__text {
+      font-size: 1.425rem;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+    
+    &__item {
+      transition: padding g.$hover-transition-speed;
+      cursor: pointer;
+    }
+
+    &__item:hover {
+      transition: padding g.$hover-transition-speed;
+      padding-left: 12px;
+    }
+  }
+}

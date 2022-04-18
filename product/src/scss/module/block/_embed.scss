@@ -1,0 +1,31 @@
+@use "../../global" as g;
+
+.embed {
+  margin: 32px 0px 0px;
+
+  &__msg {
+    display: inline-block;
+    width: 100%;
+    background: #424242;
+    padding: 9px 12px;
+    line-height: 1;
+    font-size: 1.2rem;
+    color: g.$color-text-normal-inverse;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+    &__msg {
+      padding: 12px;
+      font-size: 1.3rem;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+  }
+}

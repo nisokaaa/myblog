@@ -1,0 +1,134 @@
+@use "../../global" as g;
+
+.mobile-menu-toggle {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  transition: all .5s;
+
+  &__btn {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  %__btn-line {
+    position: absolute;
+    left: 50%;
+    width: 22px;
+    height: 2px;
+    transform: translateX(-50%);
+    background: g.$color-gray;
+    border-radius: 0.3rem;
+    transition: all .5s;
+  }
+
+  &__btn-line-1 {
+    @extend %__btn-line;
+    top: 10px;
+
+    &.--active {
+      transform: translate(-50%, 6px) rotate(-45deg);
+      background: g.$color-accent-light !important;
+    }
+  }
+
+  &__btn-line-2 {
+    @extend %__btn-line;
+    top: 17px;
+    transform: translateX(0%);
+    animation: none;
+    opacity: 1;
+
+    &.--active {
+      transform: translateX(50%);
+      animation: slide-menu-line .8s forwards;
+      opacity: 0;
+      background: g.$color-accent-light !important;
+    }
+  }
+
+  &__btn-line-3 {
+    @extend %__btn-line;
+    top: 24px;
+
+    &.--active {
+      transform: translate(-50%, -8px) rotate(45deg);
+      background: g.$color-accent-light !important;
+    }
+  }
+
+  &__text-box {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    height: 1em;
+    width: 40px;
+    color: g.$color-gray;
+  }
+
+  &__text {
+    position: absolute;
+    left: 50%;
+    transition: all .5s;
+    user-select: none;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+
+    &.--active {
+      transform: translate(-50%, 0%);
+      opacity: 1;
+    }
+
+    &.--text-2 {
+      color: g.$color-accent-light !important;
+    }
+  }
+
+  @keyframes slide-menu-line {
+    100% {
+      height: 0;
+    }
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+    
+    &__btn-line-1 {
+      top: 16px;
+    }
+
+    &__btn-line-2 {
+      top: 23px;
+    }
+
+    &__btn-line-3 {
+      top: 30px;
+    }
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+    &__btn {
+      transform: unset;
+    }
+
+    &__text-box {
+      bottom: 14px;
+    }
+    
+    &:hover {
+      background: g.$color-pale-gray;
+    }
+  }
+}
+
