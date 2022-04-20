@@ -102,5 +102,6 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
     <div class="hero__sub-mask"></div>
+    <span class="hero__scroll-line">SCROLL</span>
   </div>
 </div>

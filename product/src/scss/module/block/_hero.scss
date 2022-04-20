@@ -12,12 +12,15 @@
   &__sub {
     position: relative;
     width: 100%;
-    overflow: hidden;
     background: white;
     border-bottom: solid 1px g.$color-border;
   }
 
   &__sub-mask {
+    display: none;
+  }
+
+  &__scroll-line {
     display: none;
   }
   
@@ -37,7 +40,7 @@
   @include g.screen-tab-pc {
     width: 100%;
     margin-bottom: 260px;
-    
+
     &__main {
       border-bottom: none;
     }
@@ -45,8 +48,8 @@
     &__sub {
       position: absolute;
       bottom: -250px;
-      width: 95%;
-      margin-left: 5%;
+      width: 93%;
+      margin-left: 7%;
       border-bottom: none;
       box-shadow: 5px 2px 25px 3px rgb(0 0 0 / 8%);
     }
@@ -61,6 +64,50 @@
       background: linear-gradient(to left, white 10%, transparent);
       pointer-events: none;
       z-index: 1;
+    }
+
+    &__scroll-line {
+      position: absolute;
+      display: block;
+      bottom: 0px;
+      left: -5%;
+      padding: 10px 10px 170px;
+      font-family: europa, YakuHanJP, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "小塚ゴシック Pro", "Kozuka Gothic Pro", "Noto Sans JP";
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: .2em;
+      writing-mode: vertical-lr;
+      z-index: 1;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 1px;
+        height: 150px;
+        background: rgba(11, 17, 24, 0.1);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 1px;
+        height: 50px;
+        background: #0b1118;
+        animation: sdl 2.5s ease infinite;
+      }
+      @keyframes sdl {
+        0% {
+          transform: translateY(-100px);
+        }
+        50%, 100% {
+          transform: translateY(50px);
+        }
+      }
     }
   }
 
