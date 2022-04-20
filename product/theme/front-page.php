@@ -9,8 +9,8 @@ get_header(); ?>
     <?php get_template_part('template-parts/hero'); ?>
     <section class="main">
       <div class="caption --mt-unset-sp">
-        <svg class="caption__icon"><use href="#fa-folder"/></svg>
-        <h2 class="caption__text">新着記事一覧</h2>
+        <svg class="caption__icon"><use href="#fa-bell"/></svg>
+        <h2 class="caption__text">新しい投稿</h2>
       </div>
       <?php 
       $the_query = new WP_Query(array(
@@ -52,11 +52,6 @@ get_header(); ?>
           <!-- PC・タブレット版 広告 <上部> -->
           <?php get_template_part('template-parts/adsence', 'pc-tab-side-top'); ?>
         </div>
-      </div>
-
-      <div class="side__box">
-        <!-- おすすめ記事一覧 -->
-        <?php get_template_part('template-parts/post-list-sidebar-reccomend'); ?>
       </div>
 
       <div class="side__box">

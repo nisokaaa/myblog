@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     watchSlidesProgress: true,//各スライドの進行状況を監視（lazyがOnならtrue必須）
     autoplay: {
-      delay: 5000,
+      delay: 3500,
       disableOnInteraction: false,
     },
     breakpoints: {

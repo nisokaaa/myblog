@@ -169,8 +169,18 @@
     display: none;
   }
 
-  &.--hero #{$block}__excerpt {
+  &.--hero-main #{$block}__excerpt {
     display: none;
+  }
+
+  &.--hero-sub {
+    padding: g.$space-S;
+    overflow: hidden;
+  }
+  &.--hero-sub #{$block}__media {
+    max-width: 60%;
+    margin-right: g.$space-S;
+    user-select:none;
   }
 
   // ==========================================================================
@@ -232,10 +242,10 @@
       font-size: 1.5rem;
     }
 
-    &.--hero #{$block}__body {
+    &.--hero-main #{$block}__body {
       padding: 28px;
     }
-    &.--hero #{$block}__title {
+    &.--hero-main #{$block}__title {
       margin-bottom: 12.5px;
       font-size: 1.625rem;
       line-height: 1.6;
@@ -317,34 +327,34 @@
       font-size: 1.15rem;
     }
 
-    &.--hero #{$block}__media {
+    &.--hero-main #{$block}__media {
       flex-direction: row;
     }
-    &.--hero #{$block}__eyecatch {
+    &.--hero-main #{$block}__eyecatch {
       min-width: 64.5%;
       cursor: pointer;
     }
-    &.--hero #{$block}__body {
+    &.--hero-main #{$block}__body {
       padding: 3% 3% 1%;
     }
-    &.--hero #{$block}__tag {
+    &.--hero-main #{$block}__tag {
       position: relative;
       top: unset;
       left: unset;
     }
-    &.--hero #{$block}__title {
+    &.--hero-main #{$block}__title {
       margin: 15px 0 15px;
       font-size: 1.7rem;
       line-height: 1.5;
     }
-    &.--hero #{$block}__category-icon {
+    &.--hero-main #{$block}__category-icon {
       width: 21px;
       height: 21px;
     }
-    &.--hero #{$block}__category-text {
+    &.--hero-main #{$block}__category-text {
       font-size: 1.24rem;
     }
-    &.--hero #{$block}__excerpt {
+    &.--hero-main #{$block}__excerpt {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 4;
@@ -353,6 +363,15 @@
       line-height: 1.8;
       font-size: 1.35rem;
       color: g.$color-dark-gray;
+    }
+
+    &.--hero-sub {
+      margin-left: 35px;
+      padding: 5px g.$space-M 28px 0px;
+    }
+    &.--hero-sub #{$block}__media {
+      max-width: 250px;
+      margin-right: g.$space-M;
     }
   }
 
@@ -382,16 +401,20 @@
       font-size: 1.46rem;
     }
 
-    &.--hero #{$block}__title {
+    &.--hero-main #{$block}__title {
       margin: 20px 0 15px;
       font-size: 1.825rem;
       line-height: 1.55;
     }
-    &.--hero #{$block}__excerpt {
+    &.--hero-main #{$block}__excerpt {
       margin-top: 15px;
       -webkit-line-clamp: 5;
       font-size: 1.425rem;
       line-height: 1.85;
+    }
+
+    &.--hero-sub #{$block}__media {
+      max-width: 300px;
     }
   }
 }

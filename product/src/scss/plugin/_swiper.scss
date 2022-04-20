@@ -5,39 +5,15 @@
   height: auto !important;
 }
 
+/* container */
+.swiper-container {
+  position: relative;
+}
+
 /* button-prev/next */
 .swiper-button-prev,
 .swiper-button-next {
-  top: 42% !important;
-  width: 50px !important;
-  height: 20% !important;
-  transform: translateY(-50%);
-  transition: all g.$hover-transition-speed;
-  background-color: rgba(0, 0, 0, 0);
-  opacity: 1;
-}
-
-.swiper-button-prev {
-  left: 0px !important;
-}
-
-.swiper-button-next {
-  right: 0px !important;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: g.$color-text-normal;
-  font-size: 2rem !important;
-  font-weight: bold;
-}
-
-.swiper-button-disabled {
-  opacity: 0 !important;
+  display: none !important;
 }
 
 /* pagination */
@@ -94,23 +70,47 @@
 @include g.screen-tab-pc {
 
   /* button-prev/next */
-  .swiper-button-prev:hover,
-  .swiper-button-next:hover {
-    transition: all g.$hover-transition-speed;
-    transform: translateY(-50%) scale(1.5);
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-
   .swiper-button-prev,
   .swiper-button-next {
-    top: 55% !important;
-    height: 100% !important;
+    display: block !important;
+    top: 50px !important;
+    width: 50px !important;
+    height: 50px !important;
+    transform: translateY(-50%);
+    transition: all g.$hover-transition-speed;
+    opacity: 1;
+  }
+
+  .swiper-button-prev {
+    left: calc(100% - 150px) !important;
+  }
+
+  .swiper-button-next {
+    right: 30px !important;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: g.$color-text-normal;
+    font-size: 2rem !important;
+    font-weight: bold;
   }
 
   .swiper-button-disabled {
     opacity: inherit !important;
     cursor: pointer !important;
     pointer-events: auto !important;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    // transition: all g.$hover-transition-speed;
+    // transform: translateY(-50%) scale(1.5);
+    // background-color: rgba(0, 0, 0, 0.3);
   }
 
   /* pagination */

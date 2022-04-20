@@ -3,15 +3,30 @@
 .hero {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  border-bottom: solid 1px g.$color-border;
+  min-height: 400px;
+
+  &__main {
+    border-bottom: solid 1px g.$color-border;
+  }
+  
+  &__sub {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: white;
+    border-bottom: solid 1px g.$color-border;
+  }
+
+  &__sub-mask {
+    display: none;
+  }
   
   // ==========================================================================
   // for sp-tab
   // ==========================================================================
   @include g.screen-sp-tab {
     width: 100%;
-    margin: g.$space-M 0px 0px;
+    margin: g.$space-M 0px 215px;
     box-shadow: 1px 1px 15px 0px rgb(0 0 0 /8%);
     border-bottom: unset;
   }
@@ -21,12 +36,39 @@
   // ==========================================================================
   @include g.screen-tab-pc {
     width: 100%;
+    margin-bottom: 260px;
+    
+    &__main {
+      border-bottom: none;
+    }
+
+    &__sub {
+      position: absolute;
+      bottom: -250px;
+      width: 95%;
+      margin-left: 5%;
+      border-bottom: none;
+      box-shadow: 5px 2px 25px 3px rgb(0 0 0 / 8%);
+    }
+
+    &__sub-mask {
+      position: absolute;
+      display: block;
+      top: 0;
+      right: 0;
+      width: 15%;
+      height: 100%;
+      background: linear-gradient(to left, white 10%, transparent);
+      pointer-events: none;
+      z-index: 1;
+    }
   }
 
   // ==========================================================================
   // for FHD
   // ==========================================================================
   @include g.screen-custom(1366px) {
-    margin: g.$space-L 0px 0px;
+    margin-top: g.$space-L;
   }
 }
+
