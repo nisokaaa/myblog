@@ -7,23 +7,15 @@
 <div class="hero" id="hero">
   <div class="hero__main">
     <?php 
-    $the_query = new WP_Query(array(
-      'post_type' => 'post',
-      'post_status' => 'publish',
-      'posts_per_page' => 1 ));
+    $latest_post = get_latest_post();
     $the_post = array();
-    if ($the_query->have_posts()) {
-      while ($the_query->have_posts()) { $the_query->the_post();
-        $the_post['tag']           = get_field('post-main-tag', $post->ID);
-        $the_post['permalink_url'] = get_permalink($post->ID);
-        $the_post['eyecatch_url']  = get_eyecatch_url($post->ID);
-        $the_post['title']         = $post->post_title;
-        $the_post['category']      = get_category_child($post->ID);
-        $the_post['date']          = $post->post_date;
-        $the_post['excerpt']       = get_post_excerpt($post->post_content, 120);
-      }
-      wp_reset_postdata(); 
-    } ?>
+    $the_post['tag']           = get_field('post-main-tag', $latest_post->ID);
+    $the_post['permalink_url'] = get_permalink($latest_post->ID);
+    $the_post['eyecatch_url']  = get_eyecatch_url($latest_post->ID);
+    $the_post['title']         = $latest_post->post_title;
+    $the_post['category']      = get_category_child($latest_post->ID);
+    $the_post['date']          = $latest_post->post_date;
+    $the_post['excerpt']       = get_post_excerpt($latest_post->post_content, 120); ?>
 
     <div class="post-card --hero-main">
       <article class="post-card__media">
@@ -38,7 +30,7 @@
           <div class="post-card__meta">  
             <p class="post-card__category">
               <svg class="post-card__category-icon" style="background: <?php echo esc_html($the_post['category']['color']);?>;">
-                <use href="#<?php echo esc_html($the_post['category']['icon']); ?>-solid"/>
+                <use href="#<?php echo esc_html($the_post['category']['icon']); ?>"/>
               </svg>
               <span class="post-card__category-text"><?php echo esc_html($the_post['category']['name']); ?></span>
             </p>
@@ -85,7 +77,7 @@
             <div class="post-card__meta">  
               <p class="post-card__category">
                 <svg class="post-card__category-icon" style="background: <?php echo esc_html($post['category']['color']);?>;">
-                  <use href="#<?php echo esc_html($post['category']['icon']); ?>-solid"/>
+                  <use href="#<?php echo esc_html($post['category']['icon']); ?>"/>
                 </svg>
                 <span class="post-card__category-text"><?php echo esc_html($post['category']['name']); ?></span>
               </p>

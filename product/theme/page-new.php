@@ -17,7 +17,7 @@ get_header(); ?>
         'post_type' => 'post',
         'post_status' => 'publish',
         'paged' => $paged,
-        'posts_per_page' => 18, // 注）front-pageと一致させること
+        'posts_per_page' => 6, // 注）front-pageと一致させること
       )); ?>
       <?php if ($the_query->have_posts()) {
         $args = array();

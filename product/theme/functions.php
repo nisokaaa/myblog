@@ -167,6 +167,22 @@ remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wp_shortlink_wp_head');
 
 /* ---------------------------------------
+  最も新しい投稿のpostデータを返す
+--------------------------------------- */
+function get_latest_post() {
+  $the_query = new WP_Query(array(
+    'post_type' => 'post',
+    'post_status' => 'publish',
+    'posts_per_page' => 1 ));
+  if ($the_query->have_posts()) {
+    while ($the_query->have_posts()) {$the_query->the_post();
+      return $GLOBALS['post'];
+    }
+    wp_reset_postdata(); 
+  }
+}
+
+/* ---------------------------------------
   ロゴ画像出力
 --------------------------------------- */
 function echo_custom_logo($class1, $class2){

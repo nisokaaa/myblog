@@ -37,7 +37,7 @@ if (isset($args) && count($args) > 0) : ?>
           <!-- category -->  
           <p class="post-card__category">
             <svg class="post-card__category-icon" style="background: <?php echo esc_html($post['category']['color']);?>;">
-              <use href="#<?php echo esc_html($post['category']['icon']); ?>-solid"/>
+              <use href="#<?php echo esc_html($post['category']['icon']); ?>"/>
             </svg>
             <span class="post-card__category-text"><?php echo esc_html($post['category']['name']); ?></span>
           </p>

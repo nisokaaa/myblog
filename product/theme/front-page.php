@@ -16,7 +16,8 @@ get_header(); ?>
       $the_query = new WP_Query(array(
         'post_type' => 'post',
         'post_status' => 'publish',
-        'posts_per_page' => 18, // 注）page-newと一致させること
+        'post__not_in' => array(get_latest_post()->ID),
+        'posts_per_page' => 6, // 注）page-newと一致させること
       )); 
       if ($the_query->have_posts()) {
         $args = array();
