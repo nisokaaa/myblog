@@ -174,7 +174,7 @@
   }
 
   &.--hero-sub {
-    padding: g.$space-S;
+    padding: 2px g.$space-S g.$space-S;
     overflow: hidden;
   }
   &.--hero-sub #{$block}__media {

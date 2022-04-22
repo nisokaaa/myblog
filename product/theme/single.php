@@ -75,6 +75,9 @@ function get_related_post_by_term($term, $not_in_posts) {
           </div>
         </header>
         
+        <img class="single__eyecatch keep-ratio lozad" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" 
+              data-src="<?php echo esc_url($eyecatch_url); ?>" alt="">
+              
         <div class="single__content">
           <?php the_content(); ?>
         </div>

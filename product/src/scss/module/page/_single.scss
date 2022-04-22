@@ -3,14 +3,14 @@
 .single {
   &__header {
     width: 100%;
-    padding: 7% 5.5% 0px;
+    padding: 7% 5.5% 24px;
     line-height: 1.4;
     text-align: center;
     background: g.$color-base;
   }
 
   &__content {
-    padding: 1px 14px 1px;
+    padding: 24px 14px 1px;
   }
 
   &__footer {
@@ -62,15 +62,14 @@
   }
 
   &__content {
-    line-height: 2.25;
     color: g.$color-text-normal;
-    line-height: 2;
+    line-height: 1.7;
     background: g.$color-base;
 
     & > p {
       color: #333;
       font-size: 1.48rem;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.045em;
   
       &.noline em {
         background: none;
@@ -78,7 +77,7 @@
     }
 
     & > p + p {
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
     & em {
@@ -140,10 +139,11 @@
 
     &__header {
       margin: g.$space-M 0px 0px;
+      padding-bottom: 28px;
     }
 
     &__content {
-      padding: 1px 30px 1px;
+      padding: 30px 30px 1px;
     }
 
     &__footer {
@@ -205,6 +205,10 @@
   // for tab-pc
   // ==========================================================================
   @include g.screen-tab-pc {
+
+    &__header {
+      padding-bottom: 34px;
+    }
 
     &__title {
       text-align: left;

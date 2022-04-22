@@ -53,7 +53,7 @@
     </div>
   </div>
   <div class="hero__sub">
-    <div class="caption --mt-unset">
+    <div class="caption --mt-unset --mb-unset --bb-none">
       <svg class="caption__icon"><use href="#fa-folder"/></svg>
       <h2 class="caption__text">おすすめの投稿</h2>
     </div>
