@@ -11,3 +11,4 @@ import './common';
 import './modules/copy-protect';            // コピー防止
 import './modules/sticky-side-menu';        // 要素のスクロール固定(追従)
 import './modules/accordion';               // クリックで開くアコーディオン項目
+import './modules/highlight';               // code要素のハイライト

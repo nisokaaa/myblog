@@ -662,6 +662,17 @@ function my_acf_init_block_types() {
       'icon'            => 'admin-comments',
       'mode'            => 'edit'
     ));
+
+    /* コード */
+    acf_register_block_type(array(
+      'name'            => 'code',
+      'title'           => __( 'コード' ),
+      'description'     => __( 'コード' ),
+      'render_callback'	=> 'my_acf_block_render_callback',
+      'category'        => 'formatting',
+      'icon'            => 'admin-comments',
+      'mode'            => 'edit'
+    ));
   }
 }
 function my_acf_block_render_callback( $block ) {

@@ -9,3 +9,4 @@ import './common';
 
 // ページ固有JS
 import './modules/accordion';               // クリックで開くアコーディオン項目
+import './modules/highlight';               // code要素のハイライト

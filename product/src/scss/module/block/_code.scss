@@ -1,0 +1,34 @@
+@use "../../global" as g;
+
+.code {
+  background: #22252a;
+  color: #e3e3e3;
+  font-size: 1.28rem;
+  margin: 1.5em -14px;
+  padding: 1em 16px;
+
+  &__inner {
+    overflow-x: auto;
+    box-sizing: inherit;
+    padding: 10px 0px;
+  }
+
+  &__body {
+    font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  }
+
+  // ==========================================================================
+  // for sp-tab
+  // ==========================================================================
+  @include g.screen-sp-tab {
+    font-size: 1.54rem;
+    margin: 1.5em -30px;
+    padding: 1em 32px;
+  }
+
+  // ==========================================================================
+  // for tab-pc
+  // ==========================================================================
+  @include g.screen-tab-pc {
+  }
+}
